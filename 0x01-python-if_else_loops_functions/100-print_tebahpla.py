@@ -1,3 +1,6 @@
 #!/usr/bin/python3
+output = ""
 for i in range(ord('z'), ord('a') - 1, -1):
-    print("{}{}".format(chr(i), chr(i - 32) if i % 2 == 1 else chr(i)), end='')
+    output += "{}{}".format(chr(i), chr(i - 32) if i % 2 == 1 else "")
+
+print(output)
