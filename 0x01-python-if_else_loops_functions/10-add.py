@@ -1,7 +1,8 @@
 #!/usr/bin/python3
 def add(a, b):
     while b != 0:
-        carry = a & b
-        a = a ^ b
-        b = carry << 1
+        sum_without_carry = a ^ b
+        carry = (a & b) << 1
+        a = sum_without_carry
+        b = carry
     return a
