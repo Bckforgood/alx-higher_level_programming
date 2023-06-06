@@ -1,5 +1,6 @@
 #!/usr/bin/python3
-output = ""
-for i in range(ord('a'), ord('z') + 1):
-    output += chr(i)
-print(output, end='')
+"""
+Print the alphabet in lowercase, not followed by a new line.
+"""
+for letter in range(ord('a'), ord('z') + 1):
+    print(chr(letter), end='')
