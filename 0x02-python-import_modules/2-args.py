@@ -1,6 +1,5 @@
 #!/usr/bin/python3
 import sys
-
 def print_arguments():
     count = len(sys.argv) - 1
     if count == 0:

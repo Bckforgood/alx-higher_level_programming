@@ -1,6 +1,5 @@
 #!/usr/bin/python3
 import sys
-
 def print_addition():
     total = 0
     for i in range(len(sys.argv) - 1):
