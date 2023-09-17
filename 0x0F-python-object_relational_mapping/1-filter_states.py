@@ -1,15 +1,18 @@
 #!/usr/bin/python3
-"""lists all states """
-import MySQLdb
-from sys import argv
+"""This script prints all the satetes from the database starting
++ only with 'N'"""
+
 
 if __name__ == "__main__":
-    db = MySQLdb.connect(host="localhost", port=3306,
-                         user=argv[1], passwd=argv[2], db=argv[3])
-    curs = db.cursor()
-    curs.execute("SELECT * FROM states")
-    for data in curs.fetchall():
-        if data[1][0] == 'N':
-            print(data)
-    curs.close()
-    db.close()
+    from sys import argv
+    import MySQLdb
+
+    db = MySQLdb.connect(
+        host="localhost", port=3306, user=argv[1], passwd=argv[2], db=argv[3]
+    )
+    cr = db.cursor()
+
+    cr.execute(
+            'SELECT * FROM states WHERE name LIKE "N%" ORDER BY states.id ASC'
+    )
+    [print(state) for state in cr.fetchall() if state[1][0] == "N"]
