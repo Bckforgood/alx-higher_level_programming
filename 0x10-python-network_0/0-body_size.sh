@@ -1,8 +1,8 @@
 #!/bin/bash
 
-# This script takes a URL and displays the size of the response body in bytes
+# Bash script to accept a URL as command line argument, make request to the given URL and print the body size of response
 
-# Check if URL is provided
+# Validate if URL is provided
 if [ -z "$1" ]; then
   echo "Usage: $0 <URL>"
   exit 1
@@ -10,5 +10,6 @@ fi
 
 URL=$1
 
-# Send the request and display the size of the response body in bytes
-curl -sI "$URL" | grep -i "Content-Length" | awk '{print $2}'
+# Make the request using curl and display the response body's size in bytes
+content_length=$(curl -sI "$URL" | grep -i "Content-Length" | awk '{print $2}')
+echo "Response body's size: ${content_length} bytes"
