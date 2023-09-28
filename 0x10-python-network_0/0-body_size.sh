@@ -10,6 +10,6 @@ fi
 
 URL=$1
 
-# Send the request using curl and display the size of the response body in bytes
-curl -sI "$URL" | grep -i "Content-Length" | awk '{print $2}'
+# Send the request using curl, follow redirects, and display the size of the response body in bytes
+curl -sL "$URL" | wc -c
 
