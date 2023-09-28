@@ -10,6 +10,11 @@ fi
 
 URL=$1
 
-# Send the request using curl, follow redirects, and display the size of the response body in bytes
-curl -sL "$URL" | wc -c
+# Send the request using curl in verbose mode, and display the size of the response body in bytes
+curl -sIv "$URL" 2>&1 | {
+  # Display response headers
+  sed '/^\r$/q'
+  # Display response body size in bytes
+  wc -c
+}
 
