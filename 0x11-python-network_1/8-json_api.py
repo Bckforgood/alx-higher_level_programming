@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-Python script that sends a POST re and processes the response.
+Python script that sends aas a parameter and processes the response.
 """
 
 import requests
@@ -24,7 +24,9 @@ if __name__ == "__main__":
 
         if json_response:
             # Display the id and name
-            print("[{}] {}".format(json_response.get('id'), json_response.get('name')))
+            print("[{}]".format(json_response.get('id')))
+            print("{}".format(json_response.get('name')))
+
         else:
             print("No result")
     except ValueError:
