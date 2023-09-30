@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-Python script that takes a URL, sends a POST request, and displays the body of the response.
+Python script that takes a URL, sends a POST  body of the response.
 """
 
 import requests
