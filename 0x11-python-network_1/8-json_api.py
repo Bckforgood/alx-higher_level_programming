@@ -1,34 +1,28 @@
 #!/usr/bin/python3
 """
-Python script that sends aas a parameter and processes the response.
+Python script that sends a POST request with a letter
+as a parameter and processes the response.
 """
 
 import requests
 import sys
 
 if __name__ == "__main__":
-    if len(sys.argv) > 1:
-        q = sys.argv[1]
-    else:
+    if len(sys.argv) == 1:
         q = ""
+    else:
+        q = sys.argv[1]
 
-    # Define the payload with the letter as a parameter
     payload = {'q': q}
+    url = 'http://0.0.0.0:5000/search_user'
 
-    # Send a POST request and retrieve the response
-    response = requests.post('http://0.0.0.0:5000/search_user', data=payload)
+    response = requests.post(url, data=payload)
 
     try:
-        # Try to parse the response as JSON
         json_response = response.json()
-
         if json_response:
-            # Display the id and name
-            print("[{}]".format(json_response.get('id')))
-            print("{}".format(json_response.get('name')))
-
+            print("[{}] {}".format(json_response['id'], json_response['name']))
         else:
             print("No result")
     except ValueError:
-        # Display an error if the response is not valid JSON
         print("Not a valid JSON")
