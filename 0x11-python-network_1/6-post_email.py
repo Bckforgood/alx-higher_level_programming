@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 """
-Python script that sends a POST request with an email as a parameter
-and displays the body of the response.
+Python script that takes a URL, sends a POST request, and displays the body of the response.
 """
 
 import requests
@@ -17,5 +16,7 @@ if __name__ == "__main__":
     # Send a POST request and retrieve the response
     response = requests.post(url, data=payload)
 
-    # Print the response body
-    print("Your email is: {}".format(response.text))
+    # Print the response body in the desired format
+    print("Body response:")
+    print("    - type: {}".format(type(response.text)))
+    print("    - content: {}".format(response.text))
